@@ -476,6 +476,7 @@ Total estimated time: ~332 hours, at your own pace.
 | 23 | [Failure Modes — MAST, Groupthink, Monoculture, Cascading](phases/16-multi-agent-and-swarms/23-failure-modes-mast-groupthink/) | ✅ | ~75 min |
 | 24 | [Evaluation and Coordination Benchmarks](phases/16-multi-agent-and-swarms/24-evaluation-coordination-benchmarks/) | ✅ | ~75 min |
 | 25 | [Case Studies and 2026 State of the Art](phases/16-multi-agent-and-swarms/25-case-studies-2026-sota/) | ✅ | ~90 min |
+| 26 | [Pub/Sub Messaging for Agents](phases/16-multi-agent-and-swarms/26-pubsub-messaging-for-agents/) | ✅ | ~75 min |
 
 ## Phase 17: Infrastructure & Production — ✅ (~34 hours)
 
