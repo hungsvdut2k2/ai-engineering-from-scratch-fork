@@ -23,5 +23,6 @@
   "phases/16-multi-agent-and-swarms/22-production-scaling-queues-checkpoints/docs/en.md": "f35e11480b186e03dd8652f0775a8f23e890d03863539e654b00ddc9a9d21d09",
   "phases/16-multi-agent-and-swarms/23-failure-modes-mast-groupthink/docs/en.md": "01c36d0c07b02e58865546546e120a469f9bd58b1123aba79c3d0bccb13b6840",
   "phases/16-multi-agent-and-swarms/24-evaluation-coordination-benchmarks/docs/en.md": "1cef5b611082650577f0de25b71a4a0569a3559687c02cd081f28258922f66d0",
-  "phases/16-multi-agent-and-swarms/25-case-studies-2026-sota/docs/en.md": "6510b5b866402fd265d55f0f9c8fcc69646f71bb82828c1ac684150b58793b96"
+  "phases/16-multi-agent-and-swarms/25-case-studies-2026-sota/docs/en.md": "6510b5b866402fd265d55f0f9c8fcc69646f71bb82828c1ac684150b58793b96",
+  "phases/16-multi-agent-and-swarms/26-pubsub-messaging-for-agents/docs/en.md": "dc00f66ab654a07df9ad7bd2de073470c392659959d3c2f2a502a7279f209ff1"
 }
