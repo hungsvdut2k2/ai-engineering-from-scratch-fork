@@ -27,5 +27,6 @@
   "phases/17-infrastructure-and-production/26-compliance-frameworks/docs/en.md": "20cb93aee9790da3c61c0d106b955b01b033b90ec2262dbeb40dfdd803e4e686",
   "phases/17-infrastructure-and-production/27-finops-llms/docs/en.md": "1430e4cd6817449b618d6065ee9371aee75ed3cfbb05087a13b0c5db29827c34",
   "phases/17-infrastructure-and-production/28-self-hosted-serving-selection/docs/en.md": "299fe1b15e8624a247d15ccf0cce2047462bb32b834714b9b60a238416ca4f2c",
-  "phases/17-infrastructure-and-production/29-model-demo-interfaces/docs/en.md": "843375856e827b8e63619a29120120bd0d596eafd5111edebd1bf2a656179816"
+  "phases/17-infrastructure-and-production/29-model-demo-interfaces/docs/en.md": "843375856e827b8e63619a29120120bd0d596eafd5111edebd1bf2a656179816",
+  "phases/17-infrastructure-and-production/30-circuit-breakers-llm-providers/docs/en.md": "95aa9f932a2023982fc8b87b503d367ea2b1d3820dc060a045ec217b0c79796b"
 }
