@@ -1,0 +1,78 @@
+{
+  "lesson": "26-pubsub-messaging-for-agents",
+  "title": "Pub/Sub Messaging for Agents",
+  "questions": [
+    {
+      "stage": "pre",
+      "question": "A coder agent publishes task.code.done instead of calling the reviewer directly. What does the coder no longer need to know?",
+      "options": [
+        "The payload format that the event must follow",
+        "The name of the topic that the event is sent to",
+        "Whether its own task finished or failed",
+        "Which agents react to the event, or how many"
+      ],
+      "correct": 3,
+      "explanation": "This is space decoupling. The publisher still owns the topic name and the payload schema, but it does not know the subscribers."
+    },
+    {
+      "stage": "check",
+      "question": "Using the lesson's wildcard rules, which topic does the pattern task.*.done match?",
+      "options": [
+        "task.code.failed, since * covers the last token",
+        "task.research.done, since * covers one token",
+        "task.done, since * may also match zero tokens",
+        "task.code.review.done, since * covers two tokens"
+      ],
+      "correct": 1,
+      "explanation": "The * wildcard matches exactly one token. The > wildcard is the one that matches one or more tokens, and only at the end."
+    },
+    {
+      "stage": "check",
+      "question": "Audit and billing must each see every event. Two reviewers should split the review work. How do you subscribe them?",
+      "options": [
+        "All four consumers as members of one shared subscription",
+        "Four separate subscriptions, one for each consumer",
+        "Audit and billing separate; both reviewers in one subscription",
+        "Audit and billing in one subscription; reviewers separate"
+      ],
+      "correct": 2,
+      "explanation": "Separate subscriptions fan out, so each gets a copy. Members of one subscription compete, so each message goes to only one of them."
+    },
+    {
+      "stage": "check",
+      "question": "Why does at-least-once delivery produce duplicate messages?",
+      "options": [
+        "The broker cannot tell a lost ack from unprocessed work",
+        "The broker sends each message to every group member",
+        "The publisher retries when no subscriber has matched",
+        "The routing key hashes two messages to one consumer"
+      ],
+      "correct": 0,
+      "explanation": "If the work is done but the acknowledgement is lost, the broker sees only silence and must redeliver. An idempotent consumer absorbs the repeat."
+    },
+    {
+      "stage": "post",
+      "question": "In the demo, message 5 was dead-lettered by review, yet audit and billing handled it normally. Why?",
+      "options": [
+        "The broker deletes a message once any group nacks it",
+        "Each subscription has its own queue and fails alone",
+        "Audit and billing received it before review nacked",
+        "The routing key sent it only to the review group"
+      ],
+      "correct": 1,
+      "explanation": "Fan-out gives each subscription an independent copy with its own delivery attempts. One subscriber's failure does not affect the others."
+    },
+    {
+      "stage": "post",
+      "question": "The broker retries a failed message at the front of its queue. What does this choice trade?",
+      "options": [
+        "It keeps order but lets a bad message block the rest",
+        "It avoids duplicates but loses messages on a crash",
+        "It spreads load evenly but breaks per-key ordering",
+        "It raises throughput but removes the delivery limit"
+      ],
+      "correct": 0,
+      "explanation": "Retrying before moving on preserves order and causes head-of-line blocking. The delivery limit and dead-letter queue bound how long the block lasts."
+    }
+  ]
+}

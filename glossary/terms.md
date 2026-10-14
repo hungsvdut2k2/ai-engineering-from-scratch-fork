@@ -1511,6 +1511,15 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Related terms:** Data Provenance, Reproducible Build, Audit Log, Verification Gate
 - **Sources:** [SLSA Software Attestations](https://slsa.dev/spec/v1.2/attestation-model)
 
+### Publish-Subscribe (Pub/Sub)
+- **Category:** Agents & tools
+- **What it actually means:** A messaging pattern in which publishers send events to a named topic and a broker delivers a copy to every subscription that matches, without the publisher knowing the receivers.
+- **Why it matters:** It lets new agents react to existing events without changing the agent that produces them, at the cost of having no return value and no single place that shows the workflow.
+- **In practice:** Name topics for past-tense facts, give each independent consumer its own subscription, make handlers idempotent because delivery is at-least-once, and send messages that keep failing to a dead-letter queue.
+- **Common confusion:** Separate subscriptions each receive every message. Consumers inside one subscription share the messages, so each message reaches only one of them.
+- **Learn it:** [Pub/Sub Messaging for Agents](../phases/16-multi-agent-and-swarms/26-pubsub-messaging-for-agents/)
+- **Related terms:** Idempotency, Backpressure, Orchestration, Retry with Backoff
+
 ### Purpose Limitation
 - **Category:** Security & governance
 - **What it actually means:** For personal data, collecting and using it only for specified, explicit purposes unless a new use has an appropriate compatible or authorized basis.

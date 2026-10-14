@@ -944,6 +944,7 @@ through evidence, risk, scope, measurement, staged release, and feedback ownersh
 | 23 | [Failure Modes — MAST, Groupthink, Monoculture](phases/16-multi-agent-and-swarms/23-failure-modes-mast-groupthink/) | Learn | Python |
 | 24 | [Evaluation and Coordination Benchmarks](phases/16-multi-agent-and-swarms/24-evaluation-coordination-benchmarks/) | Learn | Python |
 | 25 | [Case Studies and 2026 State of the Art](phases/16-multi-agent-and-swarms/25-case-studies-2026-sota/) | Learn | Python |
+| 26 | [Pub/Sub Messaging for Agents](phases/16-multi-agent-and-swarms/26-pubsub-messaging-for-agents/) | Build | Python |
 
 </details>
 
