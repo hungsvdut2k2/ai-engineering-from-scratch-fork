@@ -511,6 +511,7 @@ Total estimated time: ~332 hours, at your own pace.
 | 27 | FinOps for LLMs — Unit Economics and Multi-Tenant Attribution | ✅ | ~60 min |
 | 28 | Self-Hosted Serving Selection — Matching Engine to Hardware and Scale | ✅ | ~45 min |
 | 29 | Model Demo Interfaces — From a Function to a Shareable App | ✅ | ~90 min |
+| 30 | Circuit Breakers for LLM Providers | ✅ | ~75 min |
 
 ## Phase 18: Ethics, Safety & Alignment — ✅ (~31 hours)
 

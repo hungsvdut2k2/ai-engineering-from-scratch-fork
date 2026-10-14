@@ -318,6 +318,7 @@ The twelve categories are: Math & training; Models & inference; Data & represent
 - **Why it matters:** It prevents repeated model or tool failures from consuming latency, budget, and capacity across the rest of the system.
 - **In practice:** Open the breaker after repeated provider timeouts, fail over or return a controlled response, then allow a limited health probe after a cooldown.
 - **Common confusion:** A circuit breaker reacts to dependency health. A rate limit controls allowed request volume.
+- **Learn it:** [Circuit Breakers for LLM Providers](../phases/17-infrastructure-and-production/30-circuit-breakers-llm-providers/)
 - **Related terms:** Retry with Backoff, Rate Limit, Model Router, Backpressure
 
 ### CNN (Convolutional Neural Network)

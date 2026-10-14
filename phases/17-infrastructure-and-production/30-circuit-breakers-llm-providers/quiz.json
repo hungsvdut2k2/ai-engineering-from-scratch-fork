@@ -1,0 +1,78 @@
+{
+  "lesson": "30-circuit-breakers-llm-providers",
+  "title": "Circuit Breakers for LLM Providers",
+  "questions": [
+    {
+      "stage": "pre",
+      "question": "A gateway retries each failed call and then falls back to a second provider. What does a circuit breaker add to it?",
+      "options": [
+        "It raises the number of retry attempts for each request",
+        "It lets later requests skip a provider that earlier ones found down",
+        "It limits how many requests each tenant may send per minute",
+        "It caches earlier answers so the provider is called less often"
+      ],
+      "correct": 1,
+      "explanation": "A retry and a fallback act on one request. A breaker shares what earlier requests learned, so later requests fail fast instead of paying the timeout again."
+    },
+    {
+      "stage": "check",
+      "question": "In which state does a circuit breaker refuse calls without contacting the provider?",
+      "options": [
+        "Closed, because a closed circuit blocks all traffic",
+        "Half-open, for every call that arrives in that state",
+        "Open, until the cooldown period has fully elapsed",
+        "Closed, once the sliding window has been filled"
+      ],
+      "correct": 2,
+      "explanation": "Open is the tripped state. Closed is normal operation, and half-open admits a limited number of probes."
+    },
+    {
+      "stage": "check",
+      "question": "Why does a failure-rate breaker need a minimum-call guard?",
+      "options": [
+        "So that one failure out of one call does not read as a 100% rate",
+        "So that the half-open state admits more than a single probe",
+        "So that the cooldown grows each time a probe call fails",
+        "So that late results cannot restart the open cooldown"
+      ],
+      "correct": 0,
+      "explanation": "With too few samples the failure rate is noise. The guard makes the breaker wait until the window holds enough calls to trust the rate."
+    },
+    {
+      "stage": "check",
+      "question": "Which response should NOT count as a failure against the provider's breaker?",
+      "options": [
+        "A call that hits the 10 second timeout with no reply",
+        "A 503 returned because the provider is overloaded",
+        "A 429 returned because the rate limit was exceeded",
+        "A 400 returned because the prompt exceeds the context"
+      ],
+      "correct": 3,
+      "explanation": "A 400 blames the request. The provider received it, validated it, and answered quickly, which is evidence that the provider is healthy."
+    },
+    {
+      "stage": "post",
+      "question": "In the demo, the primary recovers at second 80 but the breaker closes at second 115. What caused the delay?",
+      "options": [
+        "The sliding window still held failures from the outage",
+        "The fallback provider was holding the traffic by design",
+        "A failed probe at second 54 doubled the cooldown to 60s",
+        "The minimum-call guard blocked the half-open transition"
+      ],
+      "correct": 2,
+      "explanation": "The probe at second 54 failed, so the cooldown grew from 30 to 60 seconds and the next probe ran at second 114. Slower recovery is the price of cheaper outages."
+    },
+    {
+      "stage": "post",
+      "question": "What is the correct order to wrap a provider call, from outermost to innermost?",
+      "options": [
+        "Retry, then circuit breaker, then timeout, then the call",
+        "Timeout, then retry, then circuit breaker, then the call",
+        "Circuit breaker, then retry, then timeout, then the call",
+        "Retry, then timeout, then circuit breaker, then the call"
+      ],
+      "correct": 0,
+      "explanation": "The timeout is innermost so a hung call becomes a countable failure. The breaker is inside the retry so each attempt asks the breaker first and cannot hammer an open circuit."
+    }
+  ]
+}

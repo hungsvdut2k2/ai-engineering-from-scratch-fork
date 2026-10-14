@@ -983,6 +983,7 @@ through evidence, risk, scope, measurement, staged release, and feedback ownersh
 | 27 | [FinOps for LLMs — Unit Economics and Multi-Tenant Attribution](phases/17-infrastructure-and-production/27-finops-llms/) | Learn | Python |
 | 28 | [Self-Hosted Serving Selection — Matching Engine to Hardware and Scale](phases/17-infrastructure-and-production/28-self-hosted-serving-selection/) | Learn | Python |
 | 29 | [Model Demo Interfaces — From a Function to a Shareable App](phases/17-infrastructure-and-production/29-model-demo-interfaces/) | Build | Python |
+| 30 | [Circuit Breakers for LLM Providers](phases/17-infrastructure-and-production/30-circuit-breakers-llm-providers/) | Build | Python |
 
 </details>
 
